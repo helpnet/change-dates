@@ -21,7 +21,7 @@ class Course
 
     def sidebar_links
         @mechanize.get(@entry_point) do |page|
-            @links = page.links_with(:text => /Week \d/)
+            @links = page.links_with(:text => /[week|unit] \d$/i)
         end
         @links.each do |link|
             puts link
