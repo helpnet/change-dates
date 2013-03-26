@@ -1,0 +1,10 @@
+#! /usr/bin/ruby
+
+class Credentials
+    attr_reader :username, :password
+
+    def initialize
+        @username = ""
+        @password = ""
+    end
+end
