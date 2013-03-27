@@ -31,11 +31,13 @@ class Course
 
         @mechanize.get(form_url) do |form_page|
 
+            form = form_page.form_with(:name => 'the_form')
+
             form_page.form_with(:name => 'the_form') do |f|
                 f.checkbox_with(:name => "bbDateTimePicker_start_checkbox").value = 1
+                f.checkbox_with(:name => "bbDateTimePicker_start_checkbox").check
                 f.bbDateTimePicker_start_datetime = "2013-4-01 23:59:00"
-                p f.button_with(:value => "Submit")
-                f.submit(f.button_with(:value => "Submit"))
+                f.submit(f.buttons[1])
             end
         end
 
