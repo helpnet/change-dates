@@ -1,4 +1,4 @@
-$TERM_DATES = { 1 => "2013-4-02 23:59:00" }
+$TERM_DATES = { 1 => "2013-4-02 23:59:00", 2 => "2013-4-10 23:59:00", 3 => "2013-4-17 23:59:00", 4 => "2013-4-24 23:59:00", 5 => "2013-5-01 23:59:00", 6 => "2013-5-08 23:59:00", 7 => "2013-5-15 23:59:00", 8 => "2013-5-08 23:59:00", 9 => "2013-5-15 23:59:00", 10 => "2013-5-22 23:59:00", 10 => "2013-6-05 23:59:00", 11 => "2013-5-11 23:59:00" }
 
 class Course
 
@@ -37,11 +37,11 @@ class Course
                 form_page.form_with(:name => 'the_form') do |f|
                     f.checkbox_with(:name => "bbDateTimePicker_start_checkbox").value = 1
                     f.checkbox_with(:name => "bbDateTimePicker_start_checkbox").check
-                    f.bbDateTimePicker_start_datetime = $TERM_DATES[1]
+                    f.bbDateTimePicker_start_datetime = $TERM_DATES[week_number.to_i]
                     f.submit(f.buttons[1])
                 end
             end
-            puts "#{@course_id} - changed date for week #{week_number} to #{$TERM_DATES[1]}"
+            puts "#{@course_id} - changed date for week #{week_number} to #{$TERM_DATES[week_number.to_i]}"
         end
 
     end
