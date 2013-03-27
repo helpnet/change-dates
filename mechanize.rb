@@ -18,6 +18,5 @@ mechanize.get('https://learn.dcollege.net/') do |page|
     end.submit
 end
 
-course = Course.new(2544, mechanize)
-course.get_name
+course = Course.new(54814, mechanize)
 course.sidebar_links

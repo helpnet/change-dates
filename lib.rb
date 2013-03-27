@@ -1,4 +1,4 @@
-$TERM_DATES = { 1 => "2013-4-02 07:00:00", 2 => "2013-4-10 07:00:00", 3 => "2013-4-17 07:00:00", 4 => "2013-4-24 07:00:00", 5 => "2013-5-01 07:00:00", 6 => "2013-5-08 07:00:00", 7 => "2013-5-15 07:00:00", 8 => "2013-5-08 07:00:00", 9 => "2013-5-15 07:00:00", 10 => "2013-5-22 07:00:00", 10 => "2013-6-05 07:00:00", 11 => "2013-5-11 07:00:00" }
+$TERM_DATES = { 1 => "", 2 => "2013-4-10 07:00:00", 3 => "2013-4-17 07:00:00", 4 => "2013-4-24 07:00:00", 5 => "2013-5-01 07:00:00", 6 => "2013-5-08 07:00:00", 7 => "2013-5-15 07:00:00", 8 => "2013-5-08 07:00:00", 9 => "2013-5-15 07:00:00", 10 => "2013-5-22 07:00:00", 10 => "2013-6-05 07:00:00", 11 => "2013-5-11 07:00:00" }
 
 class Course
 
@@ -7,6 +7,7 @@ class Course
         @mechanize = mechanize
 
         entry_point
+        get_name
     end
 
     def entry_point
@@ -17,7 +18,6 @@ class Course
     def get_name
         @mechanize.get(@entry_point) do |page|
             @name = page.link_with(:id => 'courseMenu_link')
-            puts @name
         end
     end
 
@@ -41,7 +41,7 @@ class Course
                     f.submit(f.buttons[1])
                 end
             end
-            puts "#{@course_id} - changed date for week #{week_number} to #{$TERM_DATES[week_number.to_i]}"
+            puts "#{@name} - changed date for week #{week_number} to #{$TERM_DATES[week_number.to_i]}"
         end
 
     end
