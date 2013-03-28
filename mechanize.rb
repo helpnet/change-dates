@@ -3,8 +3,17 @@
 require 'mechanize'
 require './uname.rb'
 require './lib.rb'
+require 'io/console'
+
+puts "Username:"
+uname = gets.chomp
+
+puts "Password (hidden):"
+pword = STDIN.noecho(&:gets).chomp
 
 course_list = []
+
+#file = ARGV[0]
 
 File.open('courses.txt').each(sep="\r") do |line|
     course_list << /: (\d+)/.match(line)[1]
@@ -19,8 +28,8 @@ end
 
 mechanize.get('https://learn.dcollege.net/') do |page|
     homepage = page.form_with(:name => 'login') do |credentials|
-        credentials.user_id = my_creds.username
-        credentials.password = my_creds.password
+        credentials.user_id = uname
+        credentials.password = pword
     end.submit
 end
 
