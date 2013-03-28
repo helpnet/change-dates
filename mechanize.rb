@@ -4,17 +4,19 @@ require 'mechanize'
 require './lib.rb'
 require 'io/console'
 
-puts "Username:"
-uname = gets.chomp
+print "Username: "
+uname = STDIN.gets.chomp
 
-puts "Password (hidden):"
+print "Password (hidden): "
 pword = STDIN.noecho(&:gets).chomp
+
+puts "\nLogging you in and finding courses...."
 
 course_list = []
 
-file = ARGV[1]
+file = ARGV[0]
 
-File.open('courses.txt').each(sep="\r") do |line|
+File.open(file).each(sep="\r") do |line|
     course_list << /: (\d+)/.match(line)[1]
 end
 
