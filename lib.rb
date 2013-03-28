@@ -26,6 +26,10 @@ class Course
             @links = page.links_with(:text => /[week|unit] \d+$/i)
         end
 
+        if (@links.length == 0)
+            puts "#{@name} - No timeable weeks"
+        end
+
         @links.each do |week_link|
 
             content_id = /content_id=_(\d+)/.match(week_link.href)[1]
