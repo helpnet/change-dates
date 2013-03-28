@@ -1,7 +1,9 @@
 var topDivs = document.getElementsByClassName('collapsible')[0].childNodes[1].childNodes;
 var innerDivs = [];
 var courses = [];
-message = "";
+var message = "";
+var listItems;
+var course;
 
 
 for (i=0; i < topDivs.length; i++) {
