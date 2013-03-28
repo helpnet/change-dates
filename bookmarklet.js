@@ -1,27 +1,28 @@
 var topDivs = document.getElementsByClassName('collapsible')[0].childNodes[1].childNodes;
 var innerDivs = [];
+var courses = [];
+message = "";
+
 
 for (i=0; i < topDivs.length; i++) {
-        if (topDivs[i].tagName == 'DIV') { 
-                innerDivs.push(topDivs[i]);
-        }
-}
-
-for (i=0; i < innerDivs.length; i++) {
-        if (innerDivs[i].getAttribute == ) {
-                console.log(innerDivs[i]);
-        }
-}
-
-or (i=0; i < topDivs.length; i++) {
         if ((topDivs[i].tagName == 'DIV') && (topDivs[i].getAttribute("style") == "")) {
                 innerDivs.push(topDivs[i]);
+        }       
+}
+
+listItems = innerDivs[0].childNodes[3].childNodes;
+
+for (i=0; i < listItems.length; i++) {
+        if (listItems[i].tagName == "LI") {
+                course = new Object();
+                course.id = listItems[i].childNodes[3].href.match(/Course%26id%3D_(\d+)/)[1];
+                course.name = listItems[i].childNodes[3].text;
+                courses.push(course);
         }
 }
 
-for (i=0; i < innerDivs.length; i++) {
-        if (innerDivs[i].getAttribute("style") != "" ) {
-                innerDivs.splice(i, 1);
-        }
+for (i=0; i < courses.length; i++) {
+        message += "\n" + courses[i].name + ": " + courses[i].id;
 }
 
+console.log(message);
