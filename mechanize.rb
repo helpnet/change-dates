@@ -1,7 +1,6 @@
 #! /usr/bin/ruby
 
 require 'mechanize'
-require './uname.rb'
 require './lib.rb'
 require 'io/console'
 
@@ -13,13 +12,11 @@ pword = STDIN.noecho(&:gets).chomp
 
 course_list = []
 
-#file = ARGV[0]
+file = ARGV[1]
 
 File.open('courses.txt').each(sep="\r") do |line|
     course_list << /: (\d+)/.match(line)[1]
 end
-
-my_creds = Credentials.new
 
 mechanize = Mechanize.new do |agent|
     agent.user_agent_alias = 'Mac Safari'
