@@ -8,14 +8,35 @@ class ConfigFile
         end
         config_list
     end
+
+    def self.process_term_dates(file="")
+        term_dates = { 1 => "", 2 => "", 3 => "", 4 => "", 5 => "", 6 => "", 7 => "", 8 => "", 9 => "", 10 => "", 11 => "" }
+        array = []
+
+        if (file != "")
+            File.readlines(file).each do |line|
+                array << /: (.+)/.match(line)[1]
+            end
+
+            array.each do |date|
+                term_dates[array.index(date) + 1] = date
+            end
+            term_dates
+        else
+            term_dates
+        end
+    end
+
+
 end
 
 
 class Course
 
-    def initialize(course_id, mechanize)
+    def initialize(course_id, mechanize, term_dates)
         @course_id = course_id
         @mechanize = mechanize
+        @term_dates = term_dates
 
         entry_point
         get_name
@@ -52,11 +73,11 @@ class Course
                 form_page.form_with(:name => 'the_form') do |f|
                     f.checkbox_with(:name => "bbDateTimePicker_start_checkbox").value = 1
                     f.checkbox_with(:name => "bbDateTimePicker_start_checkbox").check
-                    f.bbDateTimePicker_start_datetime = $TERM_DATES[week_number.to_i]
+                    f.bbDateTimePicker_start_datetime = @term_dates[week_number.to_i]
                     f.submit(f.buttons[1])
                 end
             end
-            puts "#{@name} - changed date for week #{week_number} to #{$TERM_DATES[week_number.to_i]}"
+            puts "#{@name} - changed date for week #{week_number} to #{@term_dates[week_number.to_i]}"
         end
 
     end

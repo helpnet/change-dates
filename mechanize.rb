@@ -13,8 +13,11 @@ pword = STDIN.noecho(&:gets).chomp
 puts "\nLogging you in and finding courses...."
 
 file = ARGV[0]
+date_file = ARGV[1]
 
 course_list = ConfigFile.process(file)
+
+dates = ConfigFile.process_term_dates(date_file)
 
 mechanize = Mechanize.new do |agent|
     agent.user_agent_alias = 'Mac Safari'
@@ -29,6 +32,7 @@ mechanize.get('https://learn.dcollege.net/') do |page|
 end
 
 course_list.each do |id|
-    course = Course.new(id, mechanize)
+    course = Course.new(id, mechanize, dates)
     course.time_content_areas
 end
+
