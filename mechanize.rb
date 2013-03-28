@@ -4,6 +4,12 @@ require 'mechanize'
 require './uname.rb'
 require './lib.rb'
 
+course_list = []
+
+File.open('courses.txt').each(sep="\r") do |line|
+    course_list << /: (\d+)/.match(line)[1]
+end
+
 my_creds = Credentials.new
 
 mechanize = Mechanize.new do |agent|
@@ -18,5 +24,7 @@ mechanize.get('https://learn.dcollege.net/') do |page|
     end.submit
 end
 
-course = Course.new(54814, mechanize)
-course.sidebar_links
+course_list.each do |id|
+    course = Course.new(id, mechanize)
+    course.sidebar_links
+end
