@@ -12,10 +12,10 @@ pword = STDIN.noecho(&:gets).chomp
 
 puts "\nLogging you in and finding courses...."
 
-file = ARGV[0]
-date_file = ARGV[1]
+course_list_file = ARGV[0]
+date_file = ARGV[1] || "reset.txt"
 
-course_list = ConfigFile.process(file)
+course_list = ConfigFile.process(course_list_file)
 
 dates = ConfigFile.process_term_dates(date_file)
 
