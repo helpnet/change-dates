@@ -1,5 +1,16 @@
 $TERM_DATES = { 1 => "", 2 => "2013-4-10 07:00:00", 3 => "2013-4-17 07:00:00", 4 => "2013-4-24 07:00:00", 5 => "2013-5-01 07:00:00", 6 => "2013-5-08 07:00:00", 7 => "2013-5-15 07:00:00", 8 => "2013-5-08 07:00:00", 9 => "2013-5-15 07:00:00", 10 => "2013-5-22 07:00:00", 10 => "2013-6-05 07:00:00", 11 => "2013-5-11 07:00:00" }
 
+class ConfigFile
+    def self.process(file)
+        config_list = []
+        File.open(file).each(sep="\r") do |line|
+            config_list << /: (\d+)/.match(line)[1]
+        end
+        config_list
+    end
+end
+
+
 class Course
 
     def initialize(course_id, mechanize)
@@ -21,7 +32,7 @@ class Course
         end
     end
 
-    def sidebar_links
+    def time_content_areas
         @mechanize.get(@entry_point) do |page|
             @links = page.links_with(:text => /[week|unit] \d+$/i)
         end
