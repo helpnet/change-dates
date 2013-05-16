@@ -64,7 +64,7 @@ class Course
 
             content_id = /content_id=_(\d+)/.match(week_link.href)[1]
             form_url = "https://learn.dcollege.net/webapps/blackboard/content/manageFolder.jsp?content_id=_#{content_id}_1&course_id=_#{@course_id}_1"
-            week_number = /[week|unit] (\d+)/.match(week_link.text)[1]
+            week_number = /[week|unit] (\d+)/i.match(week_link.text)[1]
 
             @mechanize.get(form_url) do |form_page|
 
