@@ -1,7 +1,7 @@
 class ConfigFile
     def self.process(file)
         config_list = []
-        File.open(file).each(sep="\r") do |line|
+        File.open(file).each do |line|
             config_list << /: (\d+)/.match(line)[1]
         end
         config_list
