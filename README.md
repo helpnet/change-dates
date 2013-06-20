@@ -19,4 +19,4 @@ Either way, the output will be printed in the console. You can copy paste this l
 
 Troubleshooting/considerations
 ==============================
-* This code is very brittle! It relies on consisten URLs and DOM elements which could change at anytime.
+* This code is very brittle! It relies on consistent URLs and DOM elements which could change at anytime.
