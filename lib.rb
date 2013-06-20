@@ -16,8 +16,8 @@ class ConfigFile
                 array << /: (.+)/.match(line)[1]
             end
 
-            array.each do |date|
-                term_dates[array.index(date) + 1] = date
+            array.each_with_index do |date, index|
+                term_dates[index + 1] = date
             end
             term_dates
         else
