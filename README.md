@@ -1,5 +1,6 @@
 TARCIS: Time And Relative Courses in Space
 ==========================================
+Course timing automation built on top of LMS DOM and URL structure with a web crawler.
 
 Installation & Usage
 --------------------
