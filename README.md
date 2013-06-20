@@ -3,7 +3,7 @@ TARCIS: Time And Relative Courses in Space
 
 Installation `git clone` the repo. Install the bookmarklet (more on that later)
 
-Place current term dates.txt and your courses.txt file into the `current_term` directory
+Place current term dates.txt and your courses.txt file into the `current_term/` directory
 
 The command syntax is: `ruby set_timings.rb current_term/course_list.txt current_term/dates.txt`
 
