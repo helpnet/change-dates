@@ -4,7 +4,7 @@ TARCIS: Time And Relative Courses in Space
 Installation & Usage
 --------------------
 
-`git clone` the repo. Install the bookmarklet (more on that later)
+`git clone` the repo. Install the bookmarklet (more on that later). Run `bundle install` to install all the gem dependencies.
 
 Place current term dates.txt and your courses.txt file into the `current_term/` directory
 
