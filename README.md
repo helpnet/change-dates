@@ -17,7 +17,9 @@ Sit back and relax while the computer sets the term dates.
 
 bookmarklet.js
 --------------
-This bookmarklet provides some convenience functions for getting a course list with URL id's. To run the code, copy-paste it into the console in your browser or install it as an actual bookmarklet by prefixing the code with `javascript:` and pasting it in as a bookmark URL.
+This bookmarklet provides some convenience functions for getting a course list with URL id's. 
+1. Go to the "Courses" page, and then look through the source code to find the URL for the Courses page without the Drexel Header. It may be something like "https://learn.dcollege.net/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_2_1"
+2. To run the code, copy-paste it into the console in your browser or install it as an actual bookmarklet by prefixing the code with `javascript:` and pasting it in as a bookmark URL.
 
 Either way, the output will be printed in the console. You can copy paste this list into courses.txt
 
