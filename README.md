@@ -5,11 +5,21 @@ Course timing automation built on top of LMS DOM and URL structure with a web cr
 Installation & Usage
 --------------------
 
-`git clone` the repo. Install the bookmarklet (more on that later). Run `bundle install` to install all the gem dependencies.
+1. Go to "https://github.com/helpnet/change-dates" to download the program.
 
-Place current term dates.txt and your courses.txt file into the `current_term/` directory
+2. Open up a Command window (PC), or a Terminal window (Mac).
 
-The command syntax is: `ruby set_timings.rb current_term/course_list.txt current_term/dates.txt`
+3. Go to "http://www.ruby-lang.org/en/downloads/" and follow the steps to install Ruby that are appropriate for your machine.
+
+4. Open up a Command window (PC) or a Terminal window (Mac). Type in the following command exactly as it appears, then press 'Enter' or 'Return'. 'gem install mechanize' The installation process may take a few minutes.
+
+5. Place current term dates.txt and your courses.txt file into the `current_term/` directory. NOTE: The latest version of dates.txt will always be available here as soon as the schedule is determined.
+
+6. Use the 'cd' command in the Command/Terminal window to navigate to the folder where this code resides. Examples of two possibilities are below for Mac and PC.
+PC: 'cd C:/Desktop/change-dates'
+Mac: 'cd /Users/YOURCOMPUTERUSERNAMEHERE/Desktop/change-dates'
+
+7. Type the following command into the Command/Terminal window and press Enter. `ruby set_timings.rb current_term/course_list.txt current_term/dates.txt`
 
 If you leave off the `dates.txt` file, it will default to `reset.txt` which will set all the dates to `""`, effectively un-timing them.
 
