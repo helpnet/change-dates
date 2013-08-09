@@ -11,15 +11,16 @@ Installation & Usage
 
 3. Go to "http://www.ruby-lang.org/en/downloads/" and follow the steps to install Ruby that are appropriate for your machine.
 
-4. Open up a Command window (PC) or a Terminal window (Mac). Type in the following command exactly as it appears, then press 'Enter' or 'Return'. `gem install mechanize` The installation process may take a few minutes.
+4. Open up a Command window (PC) or a Terminal window (Mac). Type in the following command exactly as it appears, then press 'Enter' or 'Return'. 
+	`gem install mechanize` 
+	The installation process may take a few minutes.
 
 5. Place current term dates.txt and your courses.txt file into the `current_term/` directory. NOTE: The latest version of dates.txt will always be available here as soon as the schedule is determined.
 
-6. Use the `cd` command in the Command/Terminal window to navigate to the folder where this code resides. Examples of two possibilities are below for Mac and PC.
-
-PC: `cd C:/Desktop/change-dates`
-
-Mac: `cd /Users/YOURCOMPUTERUSERNAMEHERE/Desktop/change-dates`
+6. Use the `cd` command in the Command/Terminal window to navigate to the folder where this code resides. Examples of two possibilities are below for Mac and PC. 
+	PC: `cd C:/Desktop/change-dates` 
+	
+	Mac: `cd /Users/YOURCOMPUTERUSERNAMEHERE/Desktop/change-dates`
 
 7. Type the following command into the Command/Terminal window and press Enter. `ruby set_timings.rb current_term/course_list.txt current_term/dates.txt`
 
