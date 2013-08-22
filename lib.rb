@@ -99,34 +99,51 @@ class Course
 
             content_id = /content_id=_(\d+)/.match(week_link.href)[1]
             form_url = "https://learn.dcollege.net/webapps/blackboard/content/manageFolder.jsp?content_id=_#{content_id}_1&course_id=_#{@course_id}_1"
+            if_different = false
             
             
             if week_link.text =~ (/(week|unit) one/i)
                 week_link = week_link.text.sub("One", "1")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) two/i)
                 week_link = week_link.text.sub("Two", "2")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) three/i)
                 week_link = week_link.text.sub("Three", "3")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) four/i)
                 week_link = week_link.text.sub("Four", "4")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) five/i)
                 week_link = week_link.text.sub("Five", "5")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) six/i)
                 week_link = week_link.text.sub("Six", "6")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) seven/i)
                 week_link = week_link.text.sub("Seven", "7")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) eight/i)
                 week_link = week_link.text.sub("Eight", "8")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) nine/i)
                 week_link = week_link.text.sub("Nine", "9")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) ten/i)
                 week_link = week_link.text.sub("Ten", "10")
+                if_different = true
             elsif week_link.text =~ (/(week|unit) eleven/i)
                 week_link = week_link.text.sub("Eleven", "11")
+                if_different = true
             end
             
-            week_number = /[week|unit] (\d+)/i.match(week_link)[1]
-
+            if not if_different
+                week_number = /[week|unit] (\d+)/i.match(week_link.text)[1]
+            else
+                week_number = /[week|unit] (\d+)/i.match(week_link)[1]
+            end
+            
+            
             @mechanize.get(form_url) do |form_page|
 
                 form_page.form_with(:name => 'the_form') do |f|
