@@ -10,7 +10,7 @@ Ruby Installation Steps
 2. Open up a Command window (PC), or a Terminal window (Mac).
 
 3. Go to http://www.ruby-lang.org/en/downloads/ and follow the steps to install Ruby that are appropriate for your machine.
-Note that Mac users may need to go to `https://github.com/kennethreitz/osx-gcc-installer` in order to install the Command Line tools prior to following the steps in the website above.
+Note that Mac users may need to go to https://github.com/kennethreitz/osx-gcc-installer in order to install the Command Line tools prior to following the steps in the website above.
 
 4. Open up a Command window (PC) or a Terminal window (Mac). Type in the following command exactly as it appears, then press 'Enter' or 'Return'. 
 
@@ -27,7 +27,7 @@ You will need to pull your course listings from Blackboard in the correct format
 
 2. Copy all of the information in that file.
 
-3. Go to the "Courses" page, and then look through the source code to find the URL for the Courses page without the Drexel Header. It may be something like `https://learn.dcollege.net/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_2_1`.
+3. Go to the "Courses" page, and then look through the source code to find the URL for the Courses page without the Drexel Header. It may be something like https://learn.dcollege.net/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_2_1
 
 4. To run the code, copy-paste it into the console in your browser (Firefox: `Tools > Web Developer > Console`) or install it as an actual bookmarklet by prefixing the code with `javascript:` and pasting it in as a bookmark URL.
 Either way, the output will be printed in the console. LEft-click on the output, then Ctrl/Command + C to copy the information.
