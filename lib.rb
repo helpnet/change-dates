@@ -82,7 +82,7 @@ class Course
         end
         
         if (@links.length == 0)
-            puts "#@{name} - No valid weeks found. Checking for 'One' vs '1' now.".pink
+            puts "#{@name} - No valid weeks found. Checking for 'One' vs '1' now.".pink
             @mechanize.get(@entry_point) do |page|
                 @links = page.links_with(:text => /(week|unit) (one|two|three|four|five|six|seven|eight|nine|ten|eleven)$/i)
             end
